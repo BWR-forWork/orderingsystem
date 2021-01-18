@@ -2,7 +2,7 @@
 
 ## about
 
-Learning spring cloud with Southwind.
+Learning spring cloud with @Southwind.
 
 **[This](https://github.com/southwind9801/orderingsystem/blob/master/pom.xml)** is the original repo.
 
