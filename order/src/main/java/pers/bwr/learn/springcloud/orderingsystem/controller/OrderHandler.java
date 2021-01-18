@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/order")
 public class OrderHandler {
 
-    @Value("$server.port")
+    @Value("${server.port}")
     private String port;
 
     @GetMapping("/index")
