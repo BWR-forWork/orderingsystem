@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pers.bwr.learn.springcloud.orderingsystem.entity.Menu;
+import pers.bwr.learn.springcloud.orderingsystem.entity.MenuVO;
 import pers.bwr.learn.springcloud.orderingsystem.repository.MenuRepository;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class MenuHandler {
     }
 
     @GetMapping("/findAll/{index}/{limit}")
-    public List<Menu> findAll(@PathVariable("index") int index, @PathVariable("limit") int limit){
-        return menuRepository.findAll(index,limit);
+    public MenuVO findAll(@PathVariable("index") int index, @PathVariable("limit") int limit){
+        return new MenuVO(0,"",menuRepository.count(),menuRepository.findAll(index,limit));
     }
 }
