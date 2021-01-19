@@ -1,0 +1,13 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: menu
+  datasource:
+    name: orderingsystem
+    url: jdbc:mysql://localhost:3306/orderingsystem?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC&useSSL=false
+    username: learn
+    password: 123456
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: pers.bwr.learn.springcloud.orderingsystem.entity
