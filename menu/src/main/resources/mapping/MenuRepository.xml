@@ -24,7 +24,7 @@
         insert into t_menu(name,price,flavor,tid) values(#{name},#{price},#{flavor},#{type.id})
     </insert>
 
-    <select id="findById" parameterType="long" resultType="Menu">
+    <select id="findById" parameterType="long" resultMap="menuMap">
         select id mid,name mname,price,flavor,tid from t_menu where id = #{id}
     </select>
 
