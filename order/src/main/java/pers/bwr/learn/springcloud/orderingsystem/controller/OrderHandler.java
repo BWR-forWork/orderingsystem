@@ -13,7 +13,7 @@ public class OrderHandler {
 
     @GetMapping("/index")
     public String index() {
-        return "order的端口1：" + this.port;
+        return "order的端口：" + this.port;
     }
 
 }
