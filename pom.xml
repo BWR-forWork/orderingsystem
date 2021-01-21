@@ -55,6 +55,13 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!-- 引入SpringBoot自动构建工具 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <!-- 引入Spring Cloud依赖，管理Spring Cloud生态各个组件 -->
@@ -70,18 +77,18 @@
         </dependencies>
     </dependencyManagement>
 
-           <build>
-             <plugins>
-               <plugin>
-                 <groupId>org.springframework.boot</groupId>
-                 <artifactId>spring-boot-maven-plugin</artifactId>
-                 <configuration>
-                   <fork>true</fork>
-                   <addResources>true</addResources>
-                 </configuration>
-               </plugin>
-             </plugins>
-           </build>
+    <build>
+    <plugins>
+        <plugin>
+        <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <fork>true</fork>
+                <addResources>true</addResources>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
          
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
