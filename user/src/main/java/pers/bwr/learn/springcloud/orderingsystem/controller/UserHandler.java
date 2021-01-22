@@ -29,6 +29,11 @@ public class UserHandler {
         return userRepository.findAll(index,limit);
     }
 
+    @GetMapping("/findAll")
+    public List<User> findAll() {
+        return this.findAll(0,10);
+    }
+
     @PostMapping("/save")
     public void save(@RequestBody User user){
         user.setRegisterdate(new Date());
@@ -45,4 +50,8 @@ public class UserHandler {
         return userRepository.findById(id);
     }
 
+    @PutMapping("/update")
+    public void update(@RequestBody User user) {
+        userRepository.update(user);
+    }
 }

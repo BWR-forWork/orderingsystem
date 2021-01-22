@@ -22,4 +22,16 @@
         delete from t_user where id = #{id}
     </delete>
 
+    <update id="update" parameterType="User">
+        UPDATE `t_user` SET
+                            username=#{username},
+                            `password`=#{password},
+                            nickname=#{nickname},
+                            gender=#{gender},
+                            telephone=#{telephone},
+                            registerdate=#{registerdate},
+                            address=#{address}
+        WHERE (`id`=#{id})
+    </update>
+
 </mapper>
