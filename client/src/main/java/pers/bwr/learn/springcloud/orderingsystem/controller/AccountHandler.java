@@ -56,4 +56,10 @@ public class AccountHandler {
                 return "redirect:/account/redirect/login";
         }
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/account/redirect/login";
+    }
 }
