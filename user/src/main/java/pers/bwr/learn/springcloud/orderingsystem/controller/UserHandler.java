@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import pers.bwr.learn.springcloud.orderingsystem.entity.User;
+import pers.bwr.learn.springcloud.orderingsystem.entity.UserVO;
 import pers.bwr.learn.springcloud.orderingsystem.repository.UserRepository;
 
 import java.util.Date;
@@ -25,13 +26,13 @@ public class UserHandler {
     }
 
     @GetMapping("/findAll/{index}/{limit}")
-    public List<User> findAll(@PathVariable("index") int index, @PathVariable("limit") int limit) {
-        return userRepository.findAll(index,limit);
-    }
-
-    @GetMapping("/findAll")
-    public List<User> findAll() {
-        return this.findAll(0,10);
+    public UserVO findAll(@PathVariable("index") int index, @PathVariable("limit") int limit) {
+        UserVO userVO = new UserVO();
+        userVO.setCode(0);
+        userVO.setMsg("");
+        userVO.setCount(userRepository.count());
+        userVO.setData(userRepository.findAll(index,limit));
+        return userVO;
     }
 
     @PostMapping("/save")

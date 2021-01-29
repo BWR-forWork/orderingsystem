@@ -3,6 +3,7 @@ package pers.bwr.learn.springcloud.orderingsystem.feign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import pers.bwr.learn.springcloud.orderingsystem.entity.User;
+import pers.bwr.learn.springcloud.orderingsystem.entity.UserVO;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public interface UserFeign {
 
     @GetMapping("/user/findAll/{index}/{limit}")
-    public List<User> findAll(@PathVariable("index") int index, @PathVariable("limit") int limit);
+    public UserVO findAll(@PathVariable("index") int index, @PathVariable("limit") int limit);
 
     @PostMapping("/user/save")
     public void save(@RequestBody User user);

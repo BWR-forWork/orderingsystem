@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pers.bwr.learn.springcloud.orderingsystem.entity.User;
+import pers.bwr.learn.springcloud.orderingsystem.entity.UserVO;
 import pers.bwr.learn.springcloud.orderingsystem.feign.UserFeign;
 
 import java.util.List;
@@ -17,11 +18,15 @@ public class UserHandler {
     //@Autowired
     //private OrderFeign orderFeign;
 
+    @GetMapping("/redirect/{location}")
+    public String redirect(@PathVariable("location") String location) {
+        return location;
+    }
 
-    @GetMapping("/findAll/{page}/{limit}")
+    @GetMapping("/findAll")
     @ResponseBody
-    public List<User> findAll(@RequestParam("page") int page, @RequestParam("limit") int limit){
-        return userFeign.findAll(page*(limit-1), limit);
+    public UserVO findAll(@RequestParam("page") int page, @RequestParam("limit") int limit){
+        return userFeign.findAll((page-1)*limit, limit);
     }
 
     @PostMapping("/save")
