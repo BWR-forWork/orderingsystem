@@ -1,5 +1,6 @@
 package pers.bwr.learn.springcloud.orderingsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,6 +13,7 @@ public class User extends Account{
     private String nickname;
     private String gender;
     private String telephone;
+    @JsonFormat(pattern = "yyyy年MM月dd日")
     private Date registerdate;
     private String address;
 }

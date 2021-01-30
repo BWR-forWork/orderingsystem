@@ -32,4 +32,7 @@ public interface OrderFeign {
     @PostMapping("/order/save")
     public void save(@RequestBody Order order);
 
+    @GetMapping("/order/updateState")
+    public void updateState(@RequestParam("id") long id, @RequestParam("aid") long aid, @RequestParam("state") int state);
+
 }

@@ -1,8 +1,10 @@
 package pers.bwr.learn.springcloud.orderingsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -19,6 +21,7 @@ public class Order {
     private User user;
     private Menu menu;
     private Admin admin;
+    @JsonFormat(pattern = "yyyy年MM月dd日")
     private Date date;
     private int state;
 }

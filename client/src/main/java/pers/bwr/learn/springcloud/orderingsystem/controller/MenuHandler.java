@@ -47,13 +47,13 @@ public class MenuHandler {
     @GetMapping("/deleteById/{id}")
     public String deleteById(@PathVariable("id") long id){
         menuFeign.deleteById(id);
-        return "redirect:/menu/redirect/index";
+        return "redirect:/menu/redirect/menu_manage";
     }
 
     @PostMapping("/update")
     public String update(Menu menu){
         menuFeign.update(menu);
-        return "redirect:/menu/redirect/index";
+        return "redirect:/menu/redirect/menu_manage";
     }
 
     @GetMapping("/redirect/{location}")

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import pers.bwr.learn.springcloud.orderingsystem.entity.Admin;
 import pers.bwr.learn.springcloud.orderingsystem.entity.Menu;
 import pers.bwr.learn.springcloud.orderingsystem.entity.Order;
 import pers.bwr.learn.springcloud.orderingsystem.entity.OrderVO;
@@ -61,4 +62,13 @@ public class OrderHandler {
         orderFeign.save(order);
         return "redirect:/order/redirect/order";
     }
+
+    @GetMapping("/updateState/{id}/{state}")
+    public String updateState(@PathVariable("id") long id, @PathVariable("state") int state, HttpSession session) {
+        int i = 0;
+        orderFeign.updateState(id, ((Admin)session.getAttribute("admin")).getId(), state);
+        System.out.println(session.getAttribute("admin").toString());
+        return "redirect:/order/redirect/order_handler";
+    }
+
 }

@@ -18,4 +18,5 @@ public interface OrderRepository {
     public int countByState(int state);
     public List<Order> findAllByState(int state, int index, int limit);
     public void save(Order order);
+    public void updateState(long id, long aid, int state);
 }

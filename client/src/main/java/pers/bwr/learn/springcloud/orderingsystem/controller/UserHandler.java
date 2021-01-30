@@ -41,5 +41,6 @@ public class UserHandler {
         userFeign.deleteById(id);
         return "redirect:/user/redirect/user_manage";
     }
+
 }
 

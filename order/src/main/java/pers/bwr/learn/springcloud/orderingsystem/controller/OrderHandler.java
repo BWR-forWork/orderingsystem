@@ -51,5 +51,10 @@ public class OrderHandler {
         orderRepository.save(order);
     }
 
+    @GetMapping("/updateState")
+    public void updateState(@RequestParam("id") long id, @RequestParam("aid") long aid, @RequestParam("state") int state){
+        orderRepository.updateState(id, aid, state);
+    }
+
 }
 
